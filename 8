@@ -1,0 +1,25 @@
+self.addEventListener('install',event =>
+console.log('sw is installed',event)
+);
+
+self.addEventListener('activate',event =>
+console.log('sw is activated',event)
+);
+
+self.addEventListener('fetch',event =>
+console.log('sw is fetched',event)
+);
+
+
+
+
+<script>
+    if('serviceWorker' in navigator)
+    {
+        navigator.serviceWorker.register('sw.js')
+        .then((reg) => console.log('register'))
+        .catch((err) => console.log('nr'));
+    }
+</script>
+
+<link rel=manifest href="manifest.json">
